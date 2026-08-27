@@ -1,0 +1,111 @@
+@import "leaflet/dist/leaflet.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gov-bg text-gov-text font-sans antialiased selection:bg-gov-navy selection:text-white;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom official government component utility classes */
+.gov-card {
+  @apply bg-white border border-gov-border rounded-sm shadow-none p-4;
+}
+
+.gov-table {
+  @apply w-full border-collapse text-left text-xs;
+}
+
+.gov-table th {
+  @apply bg-gov-bg text-gov-navy font-semibold px-3 py-2 border-b border-gov-border border-r border-r-gray-200 last:border-r-0 uppercase tracking-wider text-[11px];
+}
+
+.gov-table td {
+  @apply px-3 py-2 border-b border-gov-border border-r border-r-gray-100 last:border-r-0 text-gov-text;
+}
+
+.gov-table tr:hover td {
+  @apply bg-blue-50/50;
+}
+
+.gov-btn {
+  @apply inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-sm transition-colors duration-150 focus:outline-none focus:ring-1 focus:ring-gov-navy disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.gov-btn-primary {
+  @apply gov-btn bg-gov-navy text-white hover:bg-gov-navy-dark border border-gov-navy-dark;
+}
+
+.gov-btn-secondary {
+  @apply gov-btn bg-white text-gov-navy hover:bg-gray-100 border border-gov-border;
+}
+
+.gov-btn-danger {
+  @apply gov-btn bg-gov-red text-white hover:bg-red-800 border border-red-900;
+}
+
+.gov-btn-warning {
+  @apply gov-btn bg-gov-amber text-white hover:bg-amber-800 border border-amber-900;
+}
+
+.gov-btn-success {
+  @apply gov-btn bg-gov-green text-white hover:bg-green-800 border border-green-900;
+}
+
+.gov-badge {
+  @apply inline-flex items-center px-2 py-0.5 text-[11px] font-semibold rounded-sm border uppercase tracking-wider;
+}
+
+.gov-badge-critical {
+  @apply bg-red-50 text-gov-red border-red-300;
+}
+
+.gov-badge-warning {
+  @apply bg-amber-50 text-gov-amber border-amber-300;
+}
+
+.gov-badge-success {
+  @apply bg-green-50 text-gov-green border-green-300;
+}
+
+.gov-badge-neutral {
+  @apply bg-gray-100 text-gov-navy border-gov-border;
+}
+
+/* Custom Leaflet Map Popup Government Styling */
+.leaflet-popup-content-wrapper {
+  border-radius: 3px !important;
+  border: 1px solid #003366 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 8px 12px !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-size: 11px !important;
+}
+
+.leaflet-container {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+/* Custom scrollbars for clean government look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
