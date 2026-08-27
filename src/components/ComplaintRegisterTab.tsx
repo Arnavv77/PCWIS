@@ -472,29 +472,29 @@ export const ComplaintRegisterTab: React.FC<ComplaintRegisterTabProps> = ({
 
                   {/* Actions */}
                   <td className="text-center">
-                    <div className="flex items-center justify-center space-x-1">
+                    <div className="flex items-center justify-center space-x-1.5">
                       <button
                         onClick={() => onViewDetails(c)}
                         title="View Complete Case Dossier"
-                        className="gov-btn-secondary p-1 text-[11px]"
+                        className="gov-btn-secondary p-2 text-xs min-w-[36px] min-h-[36px] flex items-center justify-center touch-manipulation"
                       >
-                        <Eye className="w-3.5 h-3.5 text-gov-navy" />
+                        <Eye className="w-4 h-4 text-gov-navy" />
                       </button>
 
                       <button
                         onClick={() => onInitiateFreeze(c)}
                         title="Issue Bank Lien / Freeze Directive"
-                        className="gov-btn-danger p-1 text-[11px]"
+                        className="gov-btn-danger p-2 text-xs min-w-[36px] min-h-[36px] flex items-center justify-center touch-manipulation"
                       >
-                        <Lock className="w-3.5 h-3.5" />
+                        <Lock className="w-4 h-4" />
                       </button>
 
                       <button
                         onClick={() => onDispatchUnit(c)}
                         title="Dispatch Mobile Patrol Unit"
-                        className="gov-btn-primary p-1 text-[11px]"
+                        className="gov-btn-primary p-2 text-xs min-w-[36px] min-h-[36px] flex items-center justify-center touch-manipulation"
                       >
-                        <Send className="w-3.5 h-3.5" />
+                        <Send className="w-4 h-4" />
                       </button>
                     </div>
                   </td>

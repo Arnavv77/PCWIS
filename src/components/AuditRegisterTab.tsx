@@ -133,9 +133,9 @@ export const AuditRegisterTab: React.FC<AuditRegisterTabProps> = ({ logs }) => {
       </div>
 
       {/* Audit Immutable Banner */}
-      <div className="bg-gray-100 p-2.5 rounded-sm border border-gov-border text-[10px] font-mono text-gov-text-muted flex items-center justify-between">
-        <span>SHA-256 HASH VERIFIED &bull; IMMUTABLE LEA ACCESS AUDIT COMPLIANT (INFORMATION TECHNOLOGY ACT 2000)</span>
-        <span className="font-bold text-gov-navy">RECORDS: {filteredLogs.length} ENTRIES</span>
+      <div className="bg-gray-100 p-2.5 rounded-sm border border-gov-border text-[10px] font-mono text-gov-text-muted flex flex-wrap items-center justify-between gap-2">
+        <span className="break-words">SHA-256 HASH VERIFIED &bull; IMMUTABLE LEA ACCESS AUDIT COMPLIANT (INFORMATION TECHNOLOGY ACT 2000)</span>
+        <span className="font-bold text-gov-navy shrink-0">RECORDS: {filteredLogs.length} ENTRIES</span>
       </div>
     </div>
   );

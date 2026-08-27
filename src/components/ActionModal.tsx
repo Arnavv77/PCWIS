@@ -61,9 +61,10 @@ export const ActionModal: React.FC<ActionModalProps> = ({
 
           <button 
             onClick={onClose}
-            className="text-gray-300 hover:text-white text-sm font-bold focus:outline-none p-1 shrink-0"
+            className="text-gray-300 hover:text-white text-sm font-bold focus:outline-none p-1.5 shrink-0 min-w-[36px] min-h-[36px] flex items-center justify-center rounded hover:bg-white/10 touch-manipulation"
+            aria-label="Close dialog"
           >
-            <X className="w-4 h-4" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 

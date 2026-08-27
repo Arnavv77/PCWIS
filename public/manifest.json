@@ -4,7 +4,7 @@
   "description": "Predictive Cash-Withdrawal Intelligence System (PCWIS) - Ministry of Home Affairs | Indian Cybercrime Coordination Centre (I4C)",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23003366'/><circle cx='50' cy='50' r='30' fill='none' stroke='%23FF9933' stroke-width='6'/></svg>",
+      "src": "/favicon.svg",
       "sizes": "192x192 512x512",
       "type": "image/svg+xml",
       "purpose": "any maskable"

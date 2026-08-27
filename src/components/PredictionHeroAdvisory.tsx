@@ -56,13 +56,13 @@ export const PredictionHeroAdvisory: React.FC<PredictionHeroAdvisoryProps> = ({
           </div>
         </div>
 
-        <form onSubmit={handlePredictionSubmit} className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-end gap-2 w-full md:w-auto">
-          <div className="flex-1 min-w-[140px]">
+        <form onSubmit={handlePredictionSubmit} className="grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-row flex-wrap items-stretch sm:items-end gap-2 w-full md:w-auto">
+          <div className="sm:col-span-2 md:flex-1 md:min-w-[140px]">
             <label className="text-[9px] font-bold text-gov-text-muted uppercase block mb-0.5">Fraud Category</label>
             <select
               value={fraudCategory}
               onChange={(e) => setFraudCategory(e.target.value)}
-              className="w-full bg-white border border-gov-border rounded-sm py-1.5 px-2 text-xs font-semibold focus:outline-none focus:border-gov-navy"
+              className="w-full bg-white border border-gov-border rounded-sm py-2 sm:py-1.5 px-2 text-xs font-semibold focus:outline-none focus:border-gov-navy min-h-[40px] sm:min-h-[auto]"
             >
               <option value="Digital Arrest Scam">Digital Arrest Scam</option>
               <option value="Part-Time Job Fraud">Part-Time Job Fraud</option>
@@ -73,43 +73,46 @@ export const PredictionHeroAdvisory: React.FC<PredictionHeroAdvisoryProps> = ({
             </select>
           </div>
 
-          <div className="w-full sm:w-24">
+          <div className="w-full sm:w-auto md:w-24">
             <label className="text-[9px] font-bold text-gov-text-muted uppercase block mb-0.5">Victim Lat</label>
             <input
               type="number"
+              inputMode="decimal"
               step="0.0001"
               value={victimLat}
               onChange={(e) => setVictimLat(parseFloat(e.target.value) || 0)}
-              className="w-full bg-white border border-gov-border rounded-sm py-1.5 px-2 text-xs font-mono focus:outline-none focus:border-gov-navy"
+              className="w-full bg-white border border-gov-border rounded-sm py-2 sm:py-1.5 px-2 text-xs font-mono focus:outline-none focus:border-gov-navy min-h-[40px] sm:min-h-[auto]"
             />
           </div>
 
-          <div className="w-full sm:w-24">
+          <div className="w-full sm:w-auto md:w-24">
             <label className="text-[9px] font-bold text-gov-text-muted uppercase block mb-0.5">Victim Lng</label>
             <input
               type="number"
+              inputMode="decimal"
               step="0.0001"
               value={victimLng}
               onChange={(e) => setVictimLng(parseFloat(e.target.value) || 0)}
-              className="w-full bg-white border border-gov-border rounded-sm py-1.5 px-2 text-xs font-mono focus:outline-none focus:border-gov-navy"
+              className="w-full bg-white border border-gov-border rounded-sm py-2 sm:py-1.5 px-2 text-xs font-mono focus:outline-none focus:border-gov-navy min-h-[40px] sm:min-h-[auto]"
             />
           </div>
 
-          <div className="w-full sm:w-28">
+          <div className="sm:col-span-2 md:w-28">
             <label className="text-[9px] font-bold text-gov-text-muted uppercase block mb-0.5">Defrauded Amount (INR)</label>
             <input
               type="number"
+              inputMode="numeric"
               value={amount}
               onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
-              className="w-full bg-white border border-gov-border rounded-sm py-1.5 px-2 text-xs font-mono focus:outline-none focus:border-gov-navy"
+              className="w-full bg-white border border-gov-border rounded-sm py-2 sm:py-1.5 px-2 text-xs font-mono focus:outline-none focus:border-gov-navy min-h-[40px] sm:min-h-[auto]"
             />
           </div>
 
-          <div className="w-full sm:w-auto">
+          <div className="sm:col-span-2 md:w-auto pt-1 sm:pt-0">
             <button
               type="submit"
               disabled={isPredicting}
-              className="gov-btn-primary bg-gov-navy hover:bg-gov-navy-dark w-full sm:w-auto px-3.5 py-2 text-xs font-bold flex items-center justify-center shadow-xs cursor-pointer"
+              className="gov-btn-primary bg-gov-navy hover:bg-gov-navy-dark w-full sm:w-auto px-4 py-2.5 sm:py-2 text-xs font-bold flex items-center justify-center shadow-xs cursor-pointer min-h-[44px]"
             >
               <Sparkles className="w-3.5 h-3.5 mr-1 text-gov-saffron shrink-0" />
               {isPredicting ? 'Running Sklearn...' : 'Run ML Prediction'}

@@ -455,7 +455,7 @@ export const GeographicRiskTab: React.FC<GeographicRiskTabProps> = ({
       {/* Main Map & Detail Panel Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Left Map Viewport Canvas (7 cols) */}
-        <div className="lg:col-span-7 bg-gov-bg p-2 rounded-sm border border-gov-border relative min-h-[540px] flex flex-col justify-between">
+        <div className="lg:col-span-7 bg-gov-bg p-2 rounded-sm border border-gov-border relative min-h-[380px] sm:min-h-[540px] flex flex-col justify-between">
           
           {/* Controls Bar above map */}
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gov-border pb-2 px-1 text-xs">
@@ -466,7 +466,7 @@ export const GeographicRiskTab: React.FC<GeographicRiskTabProps> = ({
               </span>
               <button
                 onClick={() => setRiskFilter('ALL')}
-                className={`px-2 py-0.5 text-[10px] font-bold rounded border ${
+                className={`px-2 py-1 text-[10px] font-bold rounded border min-h-[32px] ${
                   riskFilter === 'ALL'
                     ? 'bg-gov-navy text-white border-gov-navy'
                     : 'bg-white text-gov-navy border-gray-300 hover:bg-gray-100'
@@ -476,7 +476,7 @@ export const GeographicRiskTab: React.FC<GeographicRiskTabProps> = ({
               </button>
               <button
                 onClick={() => setRiskFilter('MOST_RISK')}
-                className={`px-2 py-0.5 text-[10px] font-bold rounded border flex items-center ${
+                className={`px-2 py-1 text-[10px] font-bold rounded border flex items-center min-h-[32px] ${
                   riskFilter === 'MOST_RISK'
                     ? 'bg-red-600 text-white border-red-700'
                     : 'bg-red-50 text-red-700 border-red-300 hover:bg-red-100'
@@ -487,7 +487,7 @@ export const GeographicRiskTab: React.FC<GeographicRiskTabProps> = ({
               </button>
               <button
                 onClick={() => setRiskFilter('LESS_RISK')}
-                className={`px-2 py-0.5 text-[10px] font-bold rounded border flex items-center ${
+                className={`px-2 py-1 text-[10px] font-bold rounded border flex items-center min-h-[32px] ${
                   riskFilter === 'LESS_RISK'
                     ? 'bg-amber-600 text-white border-amber-700'
                     : 'bg-amber-50 text-amber-700 border-amber-300 hover:bg-amber-100'
@@ -498,7 +498,7 @@ export const GeographicRiskTab: React.FC<GeographicRiskTabProps> = ({
               </button>
               <button
                 onClick={() => setRiskFilter('ALMOST_NO_RISK')}
-                className={`px-2 py-0.5 text-[10px] font-bold rounded border flex items-center ${
+                className={`px-2 py-1 text-[10px] font-bold rounded border flex items-center min-h-[32px] ${
                   riskFilter === 'ALMOST_NO_RISK'
                     ? 'bg-emerald-600 text-white border-emerald-700'
                     : 'bg-emerald-50 text-emerald-700 border-emerald-300 hover:bg-emerald-100'
@@ -524,7 +524,7 @@ export const GeographicRiskTab: React.FC<GeographicRiskTabProps> = ({
           </div>
 
           {/* Real Leaflet OpenStreetMap Container */}
-          <div className="w-full h-[470px] rounded-sm overflow-hidden border border-gov-border my-2 relative z-0">
+          <div className="w-full h-[350px] sm:h-[470px] rounded-sm overflow-hidden border border-gov-border my-2 relative z-0">
             <MapContainer 
               center={selectedDistrict.center} 
               zoom={selectedDistrict.zoom} 
@@ -534,7 +534,7 @@ export const GeographicRiskTab: React.FC<GeographicRiskTabProps> = ({
               <MapRecenter center={mapCenter} zoom={mapZoom} />
               
               <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Government GIS Engine'
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors | Government GIS Engine'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
 

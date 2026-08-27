@@ -5,15 +5,34 @@
 @tailwind utilities;
 
 @layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+  }
   body {
     @apply bg-gov-bg text-gov-text font-sans antialiased selection:bg-gov-navy selection:text-white;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  #root {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
   }
 }
 
 /* Custom official government component utility classes */
 .gov-card {
-  @apply bg-white border border-gov-border rounded-sm shadow-none p-4;
+  @apply bg-white border border-gov-border rounded-sm shadow-none p-3 sm:p-4;
 }
 
 .gov-table {

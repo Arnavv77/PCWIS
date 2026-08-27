@@ -214,12 +214,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gov-bg flex flex-col font-sans">
+    <div className="min-h-screen bg-gov-bg flex flex-col font-sans overflow-x-hidden max-w-full">
       {/* Official Government Header */}
       <HeaderBar />
 
       {/* Main Container */}
-      <main className="flex-1 max-w-[1600px] w-full mx-auto px-2 sm:px-4 py-2 sm:py-3">
+      <main className="flex-1 max-w-[1600px] w-full mx-auto px-2 sm:px-4 py-2 sm:py-3 overflow-x-hidden">
         {/* Top KPI Metric Strip */}
         <KpiStrip metrics={kpiMetrics} />
 

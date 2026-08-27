@@ -66,16 +66,16 @@ export const EntityMapTab: React.FC<EntityMapTabProps> = ({ complaints }) => {
             <div className="flex items-center justify-center">
               <div 
                 onClick={() => setSelectedNode('victim')}
-                className={`w-72 bg-white border-2 p-3 rounded-sm shadow-sm cursor-pointer transition-all ${
+                className={`w-full max-w-xs sm:max-w-sm bg-white border-2 p-3 rounded-sm shadow-sm cursor-pointer transition-all ${
                   selectedNode === 'victim' ? 'border-gov-navy ring-1 ring-gov-navy' : 'border-gov-border hover:border-gray-400'
                 }`}
               >
                 <div className="flex items-center justify-between text-xs font-bold text-gov-navy border-b border-gray-100 pb-1 mb-1">
                   <span className="flex items-center">
-                    <User className="w-4 h-4 mr-1 text-gov-navy-light" />
+                    <User className="w-4 h-4 mr-1 text-gov-navy-light shrink-0" />
                     VICTIM SOURCE NODE
                   </span>
-                  <span className="text-[10px] bg-gray-100 px-1.5 py-0.5 font-mono text-gov-text">COMPLAINANT</span>
+                  <span className="text-[10px] bg-gray-100 px-1.5 py-0.5 font-mono text-gov-text shrink-0">COMPLAINANT</span>
                 </div>
                 <div className="text-xs space-y-0.5">
                   <div className="text-gov-text font-medium">{currentCase.district}, {currentCase.stateUT}</div>
@@ -86,9 +86,9 @@ export const EntityMapTab: React.FC<EntityMapTabProps> = ({ complaints }) => {
             </div>
 
             {/* Connecting Arrow 1 */}
-            <div className="flex flex-col items-center justify-center text-gov-navy">
+            <div className="flex flex-col items-center justify-center text-gov-navy text-center">
               <div className="h-4 w-0.5 bg-gov-navy"></div>
-              <div className="bg-blue-50 border border-blue-200 px-3 py-0.5 text-[10px] font-mono text-gov-navy rounded-sm font-semibold flex items-center my-0.5">
+              <div className="bg-blue-50 border border-blue-200 px-2 sm:px-3 py-0.5 text-[9px] sm:text-[10px] font-mono text-gov-navy rounded-sm font-semibold flex items-center my-0.5 max-w-full">
                 IMPS / UPI Deposit Transaction &bull; Instant Layering
               </div>
               <div className="h-4 w-0.5 bg-gov-navy"></div>
@@ -98,16 +98,16 @@ export const EntityMapTab: React.FC<EntityMapTabProps> = ({ complaints }) => {
             <div className="flex items-center justify-center">
               <div 
                 onClick={() => setSelectedNode('mule_account')}
-                className={`w-80 bg-white border-2 p-3 rounded-sm shadow-sm cursor-pointer transition-all ${
+                className={`w-full max-w-xs sm:max-w-sm bg-white border-2 p-3 rounded-sm shadow-sm cursor-pointer transition-all ${
                   selectedNode === 'mule_account' ? 'border-gov-navy ring-1 ring-gov-navy' : 'border-gov-border hover:border-gray-400'
                 }`}
               >
                 <div className="flex items-center justify-between text-xs font-bold text-gov-navy border-b border-gray-100 pb-1 mb-1">
                   <span className="flex items-center">
-                    <CreditCard className="w-4 h-4 mr-1 text-gov-amber" />
-                    MULE ACCOUNT (TIER-1 LIEN TARGET)
+                    <CreditCard className="w-4 h-4 mr-1 text-gov-amber shrink-0" />
+                    MULE ACCOUNT (TIER-1 TARGET)
                   </span>
-                  <span className="gov-badge gov-badge-critical text-[9px]">SEC 102 BNSS</span>
+                  <span className="gov-badge gov-badge-critical text-[9px] shrink-0">SEC 102 BNSS</span>
                 </div>
                 <div className="text-xs space-y-0.5">
                   <div className="font-mono font-bold text-gov-navy">{currentCase.muleBank}</div>

@@ -65,15 +65,33 @@ export const TabNavigation: React.FC<TabNavigationProps> = ({
   ];
 
   return (
-    <div className="bg-white border-b border-gov-border mb-4">
-      <nav className="flex space-x-1 overflow-x-auto px-2 pt-1" aria-label="Tabs">
+    <div className="bg-white border-b border-gov-border mb-3 sm:mb-4">
+      {/* Mobile Select Dropdown for screens under 640px */}
+      <div className="sm:hidden p-2">
+        <label htmlFor="mobile-tab-select" className="sr-only">Select View Tab</label>
+        <select
+          id="mobile-tab-select"
+          value={activeTab}
+          onChange={(e) => onTabChange(e.target.value as TabType)}
+          className="w-full bg-gov-bg border-2 border-gov-navy text-gov-navy text-xs font-bold py-2.5 px-3 rounded-sm focus:outline-none focus:ring-1 focus:ring-gov-navy font-sans"
+        >
+          {tabs.map((tab) => (
+            <option key={tab.id} value={tab.id}>
+              {tab.label} {tab.badge !== undefined ? `(${tab.badge})` : ''}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Desktop & Tablet Horizontal Tab Navigation Bar */}
+      <nav className="hidden sm:flex space-x-1 overflow-x-auto px-2 pt-1 scrollbar-thin" aria-label="Tabs">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
           return (
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className={`flex items-center px-4 py-2.5 text-xs font-semibold whitespace-nowrap border-b-2 transition-colors duration-150 focus:outline-none ${
+              className={`flex items-center px-3.5 py-3 text-xs font-semibold whitespace-nowrap border-b-2 transition-colors duration-150 focus:outline-none min-h-[44px] touch-manipulation ${
                 isActive
                   ? 'border-gov-navy text-gov-navy bg-blue-50/60 font-bold'
                   : 'border-transparent text-gov-text-muted hover:text-gov-navy hover:border-gray-300'
