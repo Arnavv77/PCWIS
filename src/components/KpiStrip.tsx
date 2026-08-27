@@ -25,8 +25,8 @@ export const KpiStrip: React.FC<KpiStripProps> = ({ metrics }) => {
   };
 
   return (
-    <section className="my-3">
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3">
+    <section className="my-2.5 sm:my-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 sm:gap-3">
         {metrics.map((metric) => (
           <div 
             key={metric.id} 

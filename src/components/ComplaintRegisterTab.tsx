@@ -302,61 +302,61 @@ export const ComplaintRegisterTab: React.FC<ComplaintRegisterTabProps> = ({
   return (
     <div className="gov-card space-y-4">
       {/* Table Header & Search Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-gov-border pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gov-border pb-3">
         <div>
-          <h2 className="text-sm font-bold text-gov-navy uppercase tracking-wider flex items-center">
+          <h2 className="text-xs sm:text-sm font-bold text-gov-navy uppercase tracking-wider flex items-center">
             NATIONAL CYBERCRIME COMPLAINT REGISTER — CASH WITDRAWAL INTELLIGENCE
           </h2>
-          <p className="text-[11px] text-gov-text-muted">
+          <p className="text-[10px] sm:text-[11px] text-gov-text-muted">
             Official central database of flagged complaints with automated predictive cash-withdrawal scoring
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
           <button
             onClick={handleExportCSV}
-            className="gov-btn-primary px-3.5 py-1.5 text-xs font-bold flex items-center shadow-xs"
+            className="gov-btn-primary px-3.5 py-2 sm:py-1.5 text-xs font-bold flex items-center justify-center shadow-xs w-full sm:w-auto"
             title="Download full complaint register dataset (.csv) for Excel"
           >
-            <FileSpreadsheet className="w-4 h-4 mr-1.5" />
-            Export Official Register (CSV Table)
+            <FileSpreadsheet className="w-4 h-4 mr-1.5 shrink-0" />
+            Export Register (CSV Table)
           </button>
           <button
             onClick={handleExportWordDoc}
-            className="gov-btn-secondary px-3 py-1.5 text-xs font-semibold flex items-center"
+            className="gov-btn-secondary px-3 py-2 sm:py-1.5 text-xs font-semibold flex items-center justify-center w-full sm:w-auto"
             title="Download Word Document (.doc file that opens directly in MS Word/WordPad)"
           >
-            <FileText className="w-3.5 h-3.5 mr-1 text-gov-navy" />
+            <FileText className="w-3.5 h-3.5 mr-1 text-gov-navy shrink-0" />
             Word Document (.DOC)
           </button>
         </div>
       </div>
 
       {/* Filter & Controls Bar */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 bg-gov-bg p-2.5 rounded-sm border border-gov-border text-xs">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-2.5 sm:gap-3 bg-gov-bg p-2.5 rounded-sm border border-gov-border text-xs">
         {/* Search Input (5 cols) */}
-        <div className="md:col-span-5 relative">
+        <div className="sm:col-span-2 md:col-span-5 relative">
           <div className="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none">
-            <Search className="w-3.5 h-3.5 text-gov-text-muted" />
+            <Search className="w-3.5 h-3.5 text-gov-text-muted shrink-0" />
           </div>
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search Case Ref, State, Bank, Mule Account, Category..."
-            className="w-full pl-8 pr-3 py-1.5 bg-white border border-gov-border rounded-sm text-xs font-mono focus:outline-none focus:border-gov-navy"
+            className="w-full pl-8 pr-3 py-2 sm:py-1.5 bg-white border border-gov-border rounded-sm text-xs font-mono focus:outline-none focus:border-gov-navy"
           />
         </div>
 
         {/* Status Filter Dropdown (4 cols) */}
-        <div className="md:col-span-4 flex items-center space-x-2">
-          <label className="text-[10px] font-bold text-gov-text-muted uppercase whitespace-nowrap">
-            Status Filter:
+        <div className="sm:col-span-1 md:col-span-4 flex items-center space-x-2">
+          <label className="text-[10px] font-bold text-gov-text-muted uppercase whitespace-nowrap shrink-0">
+            Status:
           </label>
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
-            className="w-full bg-white border border-gov-border rounded-sm py-1.5 px-2 text-xs focus:outline-none focus:border-gov-navy font-medium"
+            className="w-full bg-white border border-gov-border rounded-sm py-2 sm:py-1.5 px-2 text-xs focus:outline-none focus:border-gov-navy font-medium"
           >
             <option value="ALL">ALL STATUSES ({complaints.length})</option>
             <option value="UNDER_INVESTIGATION">UNDER INVESTIGATION</option>
@@ -368,14 +368,14 @@ export const ComplaintRegisterTab: React.FC<ComplaintRegisterTabProps> = ({
         </div>
 
         {/* Category Filter (3 cols) */}
-        <div className="md:col-span-3 flex items-center space-x-2">
-          <label className="text-[10px] font-bold text-gov-text-muted uppercase whitespace-nowrap">
+        <div className="sm:col-span-1 md:col-span-3 flex items-center space-x-2">
+          <label className="text-[10px] font-bold text-gov-text-muted uppercase whitespace-nowrap shrink-0">
             Category:
           </label>
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full bg-white border border-gov-border rounded-sm py-1.5 px-2 text-xs focus:outline-none focus:border-gov-navy font-medium"
+            className="w-full bg-white border border-gov-border rounded-sm py-2 sm:py-1.5 px-2 text-xs focus:outline-none focus:border-gov-navy font-medium"
           >
             <option value="ALL">ALL CATEGORIES</option>
             <option value="Digital Arrest Scam">Digital Arrest Scam</option>
@@ -389,7 +389,7 @@ export const ComplaintRegisterTab: React.FC<ComplaintRegisterTabProps> = ({
       </div>
 
       {/* Main Register Data Table */}
-      <div className="overflow-x-auto border border-gov-border rounded-sm">
+      <div className="overflow-x-auto border border-gov-border rounded-sm scrollbar-thin">
         <table className="gov-table">
           <thead>
             <tr>

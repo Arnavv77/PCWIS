@@ -219,7 +219,7 @@ export default function App() {
       <HeaderBar />
 
       {/* Main Container */}
-      <main className="flex-1 max-w-[1600px] w-full mx-auto px-3 sm:px-4 py-3">
+      <main className="flex-1 max-w-[1600px] w-full mx-auto px-2 sm:px-4 py-2 sm:py-3">
         {/* Top KPI Metric Strip */}
         <KpiStrip metrics={kpiMetrics} />
 
